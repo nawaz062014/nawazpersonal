@@ -1,0 +1,94 @@
+<mvc:View controllerName="sncReq.controller.CreateSncReq" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified" class="viewPadding">
+	<Page id="page" navButtonPress="discardPressed" showNavButton="{device>/system/phone}" title="{i18n>createSanctionTitle}">
+		<content>
+			<ObjectHeader class="employeeInfoHeaderObject" id="objectHeader" title="{HeaderView>/empDetails/Empname}"
+				number="{HeaderView>/empDetails/Empno}" numberUnit="{i18n>EmpID}">
+				<attributes>
+					<ObjectAttribute title="{i18n>Department}" text="{HeaderView>/empDetails/DeptTxtL}"/>
+					<ObjectAttribute title="{i18n>Position}" text="{HeaderView>/empDetails/EmpposTxtL}"/>
+				</attributes>
+				<statuses></statuses>
+			</ObjectHeader>
+			<!--<IconTabBar id="iconTabBar" select="handleIconTabBarSelect" class="sapUiResponsiveContentPadding">-->
+			<IconTabBar id="iconTabBar" select="handleIconTabBarSelect" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
+						<f:SimpleForm id="Sanction" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="{i18n>Sanction}"
+							labelSpanL="3" labelSpanM="3" emptySpanL="1" emptySpanM="1" columnsL="1" columnsM="1" class="editableForm">
+							<f:content>
+								<Label text="{i18n>pnr}" id="lblpnr" textAlign="Left" design="Bold" visible="true" required="false"/>
+								<Input id="pnr" type="Text" width="40%" showSuggestion="false" enabled="true" editable="true" valueHelpOnly="true" showValueHelp="true"
+									valueHelpRequest="onValueHelpRequest2" required="false" visible="true"></Input>
+								<Input id="EMPNA" width="80%" type="Text" enabled="true" visible="true" editable="false"></Input>
+								<Label text="{i18n>Date}" textAlign="Left" design="Bold"/>
+								<!--<DatePicker id="sdate" width="35%" valueFormat="yyyy-MM-dd" displayFormat="dd/MM/yyyy" required="false"/>-->
+								<DatePicker id="Date" width="35%" valueFormat="yyyy-MM-dd" displayFormat="dd/MM/yyyy" required="false"/>
+								<Label text="{i18n>Sct}" id="lblsct" textAlign="Left" design="Bold" visible="true" required="false"/>
+								<!--<Input id="sct" type="Text" width="30%" showSuggestion="false" enabled="true" editable="true" valueHelpOnly="true" showValueHelp="true"-->
+								<!--	valueHelpRequest="onValueHelpRequest3" required="false" visible="true"></Input>-->
+								<!--<Input id="sctt" type="Text" enabled="true" visible="true" editable="false"></Input>-->
+								<ComboBox id="sct" width="50%" items="{path: '/VolCategorySet'}" required="true" change="change" selectionChange="selchange">
+									<core:Item key="{Vcate}" text="{Vcatt}"/>
+								</ComboBox>
+								<Label text="{i18n>Sid}" id="lblsid" textAlign="Left" design="Bold" visible="false"/>
+								<!--<Input id="sid" type="Text" width="35%" showSuggestion="false" enabled="true" editable="true" valueHelpOnly="true" showValueHelp="true"-->
+								<!--	valueHelpRequest="onValueHelpRequest4" required="false" visible="true"></Input>-->
+								<!--<Input id="sidt" type="Text" enabled="true" visible="true" editable="false"></Input>-->
+								<ComboBox id="sid" width="50%" items="{path: '/VolCodeSet'}" required="true" visible="false">
+									<core:Item key="{Vioid}" text="{Vioit}"/>
+								</ComboBox>
+								<Label text="{i18n>note}" design="Bold"/>
+								<TextArea id="Note" placeholder="{}" liveChange="reasonLiveChange" maxLength="256" width="100%" required="false"></TextArea>
+								<Label text="{i18n>atta}" id="__label5" textAlign="Begin" design="Bold" visible="true"/>
+								<u:FileUploader id="fileUploader" uploadUrl="" visible="true" tooltip="Add attachment" style="Emphasized"/>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter id="ApproversTab" icon="sap-icon://group" design="Horizontal" tooltip="{i18n>detailIconTabBarApprovers}"
+						text="{i18n>detailIconTabBarApprovers}" visible="true">
+						<Title level="H1" text="{i18n>approvers}"/>
+						<FlexBox alignContent="Center" alignItems="Inherit" justifyContent="Center">
+							<List id="approversList" items="{path:'/ApproversSet'}" inset="false" showSeparators="None" noDataText="{i18n>approversListNoDataText}"
+								headerDesign="Plain">
+								<FeedListItem id="feed" icon="{path:'App1empno', formatter:'.userImageFormatter'}" sender="{App1empna}" senderPress="_handleSenderPress"
+									timestamp="{path:'RoleDesc',formatter:'.formatter.roleDescFormatterForDept'}" text="{App1status}"></FeedListItem>
+							</List>
+						</FlexBox>
+					</IconTabFilter>
+					<!--<IconTabFilter icon="sap-icon://attachment" text="Attachments"></IconTabFilter>-->
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<OverflowToolbar id="footerToolbar">
+				<ToolbarSpacer/>
+				<!--<Button id="approve" text="{i18n>Submit}" press="onSubmitAction" type="Accept" icon="sap-icon://accept"/>-->
+				<!--<Button id="cancel" text="{i18n>Discard}" press="onDiscardPress" icon="sap-icon://cancel"/>-->
+				<Button id="submitButton" text="{i18n>Submit}" press="submitPressed" enabled="false" type="Emphasized"/>
+				<Button text="{i18n>discard}" press="discardPressed"/>
+			</OverflowToolbar>
+		</footer>
+		<dependents>
+			<Dialog id="warningDialog" title="{i18n>warning}" type="Message" state="Warning">
+				<Text text="{i18n>discardWarning}"/>
+				<beginButton>
+					<Button text="{i18n>yes}" press="wrningDialogYesPressed"/>
+				</beginButton>
+				<endButton>
+					<Button text="{i18n>no}" press="wrningDialogNoPressed"/>
+				</endButton>
+			</Dialog>
+			<Dialog id="warningOnSubmitDialog" title="{i18n>warning}" type="Message" state="Warning">
+				<Text text="{i18n>submitWarning}"/>
+				<beginButton>
+					<Button text="{i18n>yes}" press="submitDialogYesPressed"/>
+				</beginButton>
+				<endButton>
+					<Button text="{i18n>no}" press="submitDialogNoPressed"/>
+				</endButton>
+			</Dialog>
+		</dependents>
+	</Page>
+</mvc:View>

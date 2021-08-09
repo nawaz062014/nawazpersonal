@@ -1,0 +1,119 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+<edmx:DataServices m:DataServiceVersion="2.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGW_RESIG_INTERVIEW_SRV" xml:lang="en" sap:schema-version="1">
+<EntityType Name="LeaveData" sap:content-version="1">
+<Key>
+<PropertyRef Name="Leavereqno"/>
+</Key>
+<Property Name="Empno" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Employ Position" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Empname" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Employee Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Compcode" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Zposition" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Employ Position" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Dept" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Department" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Leavereqno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="TRA No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Tra Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Reqdate" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Character Field Length = 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Leavefrom" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Character Field Length = 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Leaveto" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Character Field Length = 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Leavetype" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Att./abs. type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Totalleavedays" Type="Edm.Decimal" Nullable="false" Precision="6" Scale="2" sap:label="Att./abs. days" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+</EntityType>
+<EntityType Name="LoanReq" sap:content-version="1">
+<Key>
+<PropertyRef Name="TraNo"/>
+</Key>
+<Property Name="Company" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Reason" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Reason" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="EmpComm" Type="Edm.String" Nullable="false" MaxLength="250" sap:label="Emp Comments" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Final Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="TraNo" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="TRA No." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="Empno" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Employee Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Empname" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Employee Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="ReqDate" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Request Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Emppos" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Employ Position" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Dept" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Department" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="RequesterPn" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Requester Emp No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Workitemid" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Leavereqno" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Leave Reqest Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="LeaveStatus" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Leave Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Leavefrom" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Leave From" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Leaveto" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Leave To" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Leavetype" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Att./abs. type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Totleavedays" Type="Edm.Decimal" Nullable="false" Precision="6" Scale="2" sap:label="Att./abs. days" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1empno" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Approver1 Emp No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1empna" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver1 Emp Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1email" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver1 Email" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1mob" Type="Edm.String" Nullable="false" MaxLength="14" sap:label="Approver1 Mobile No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1comments" Type="Edm.String" Nullable="false" MaxLength="250" sap:label="Approver1 Comments" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Approver1 Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1date" Type="Edm.String" Nullable="false" MaxLength="19" sap:label="Approved Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App2empno" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Approver2 Emp No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App2empna" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver2 Emp Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App2email" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver2 Email" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App2mob" Type="Edm.String" Nullable="false" MaxLength="14" sap:label="Approver2 Mobile No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App2comments" Type="Edm.String" Nullable="false" MaxLength="250" sap:label="Approver2 Comments" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App2status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Approver2 Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App2date" Type="Edm.String" Nullable="false" MaxLength="19" sap:label="Approved Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App3empno" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Approver3 Emp No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App3empna" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver3 Emp Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App3email" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver3 Email" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App3mob" Type="Edm.String" Nullable="false" MaxLength="14" sap:label="Approver3 Mobile No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App3comments" Type="Edm.String" Nullable="false" MaxLength="250" sap:label="Approver3 Comments" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App3status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Approver3 Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App3date" Type="Edm.String" Nullable="false" MaxLength="19" sap:label="Approved Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App4empno" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Approver4 Emp No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App4empna" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver4 Emp Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App4email" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver4 Email" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App4mob" Type="Edm.String" Nullable="false" MaxLength="14" sap:label="Approver4 Mobile No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App4comments" Type="Edm.String" Nullable="false" MaxLength="250" sap:label="Approver4 Comments" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App4status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Approver4 Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App4date" Type="Edm.String" Nullable="false" MaxLength="19" sap:label="Approved Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App5empno" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Approver5 Emp No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App5empna" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver5 Emp Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App5email" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver5 Email" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App5mob" Type="Edm.String" Nullable="false" MaxLength="14" sap:label="Approver5 Mobile No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App5comments" Type="Edm.String" Nullable="false" MaxLength="250" sap:label="Approver5 Comments" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App5status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Approver5 Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App5date" Type="Edm.String" Nullable="false" MaxLength="19" sap:label="Approved Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+</EntityType>
+<EntityType Name="EmpData" sap:content-version="1">
+<Key>
+<PropertyRef Name="Empno"/>
+</Key>
+<Property Name="Empno" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Employee Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Email" Type="Edm.String" Nullable="false" MaxLength="75" sap:label="Email ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="EmpposTxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Position text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Persa" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Personnel area" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Empname" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Employee Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="DeptTxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Department Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Btrtl" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Pers. subarea" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Company" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Orgeh" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Org. Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Emppos" Type="Edm.String" Nullable="false" MaxLength="25" sap:label="Employ Position" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Dept" Type="Edm.String" Nullable="false" MaxLength="50" sap:label="Department" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="Role" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Role" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+</EntityType>
+<EntityType Name="Approvers" sap:content-version="1">
+<Key>
+<PropertyRef Name="App1empno"/>
+</Key>
+<Property Name="App1empno" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Approver1 Emp No" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+<Property Name="App1empna" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver1 Emp Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1email" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Approver1 Email" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1mob" Type="Edm.String" Nullable="false" MaxLength="14" sap:label="Approver1 Mobile No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1comments" Type="Edm.String" Nullable="false" MaxLength="250" sap:label="Approver1 Comments" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1status" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Approver1 Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+<Property Name="App1date" Type="Edm.String" Nullable="false" MaxLength="19" sap:label="Approved Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+</EntityType>
+<EntityContainer Name="ZGW_HR_LOAN_REQ_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+<EntitySet Name="LeaveDataSet" EntityType="ZGW_HR_LOAN_REQ_SRV.LeaveData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+<EntitySet Name="LoanReqSet" EntityType="ZGW_HR_LOAN_REQ_SRV.LoanReq" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+<EntitySet Name="EmpDataSet" EntityType="ZGW_HR_LOAN_REQ_SRV.EmpData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+<EntitySet Name="ApproversSet" EntityType="ZGW_HR_LOAN_REQ_SRV.Approvers" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+</EntityContainer>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="http://dg10101.holding.loc:50000/sap/opu/odata/sap/ZGW_HR_LOAN_REQ_SRV/$metadata"/>
+<atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="http://dg10101.holding.loc:50000/sap/opu/odata/sap/ZGW_HR_LOAN_REQ_SRV/$metadata"/>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

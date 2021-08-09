@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog showHeader="false" confirm="handleConfirm" afterClose="handleDialogAfterClose">
+		<!--stretch="true"-->
+		<!--Nav container to navigate from Choose for list to Search screen-->
+		<NavContainer id="navCon">
+			<Page id="masterDialog" showHeader="true" title="{i18n>chooseFor}">
+				<!--	title="Products"-->
+				<List id="chooseForlist" items="{masterView>/chooseFor}">
+					<StandardListItem title="{masterView>type}" type="Active" press="onNavToEmployeeChoose"/>
+				</List>
+			</Page>
+			<Page id="detailDialog" showNavButton="true" navButtonPress="onNavBackPopover" title="{i18n>selectEmployee}">
+				<subHeader>
+					<Bar id="headerBarPopover">
+						<contentMiddle>
+							<SearchField id="searchField" placeholder="{i18n>employeeSearchPlaceholder}" showRefreshButton="{= !${device>/support/touch} }"
+								tooltip="{i18n>masterSearchTooltip}" width="100%" search="onSearchForEmployee"></SearchField>
+						</contentMiddle>
+					</Bar>
+				</subHeader>
+				<List id="listEmployeeSelect" items="{path:'/ReportingEmpsSet'}">
+					<StandardListItem title="{Empname}" description="{Empno}" type="Active" press="onEmployeeSelect"/>
+				</List>
+			</Page>
+		</NavContainer>
+		<beginButton>
+			<Button text="{i18n>close}" press="dialogClose"/>
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

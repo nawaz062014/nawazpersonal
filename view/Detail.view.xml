@@ -1,0 +1,58 @@
+<mvc:View controllerName="sncReq.controller.Detail" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Page id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}"
+		busyIndicatorDelay="{detailView>/delay}">
+		<content>
+			<ObjectHeader class="employeeInfoHeaderObject" id="objectHeader" title="{Ename}" number="{Pernr}" numberUnit="{Status}"
+				numberState="{path:'Status',formatter:'.formatter.statusColorFormatter'}">
+				<attributes>
+					<ObjectAttribute title="{i18n>Department}" text="{DeptTxtL}"/>
+					<ObjectAttribute title="{i18n>Position}" text="{EmpposTxtL}"/>
+				</attributes>
+				<!--<statuses>-->
+				<!--	<ObjectStatus title="{i18n>ReqDate}" text="{path:'ReqDate', formatter: '.formatter.dateFormatter'}" state="Warning"-->
+				<!--		icon="sap-icon://status-critica" class="boldText"/>-->
+				<!--	<ObjectStatus title="{i18n>Status}" text="{Status}" state="{path:'Status', formatter: '.formatter.statusColorFormatter'}"/>-->
+				<!--</statuses>-->
+			</ObjectHeader>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
+						<f:SimpleForm id="Sanction1" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="{i18n>Sanction1}"
+							labelSpanL="3" labelSpanM="3" emptySpanL="1" emptySpanM="1" columnsL="2" columnsM="2" class="enabledForm">
+							<f:content>
+								<Label text="{i18n>pnr}" id="lblpnr" textAlign="Left" design="Bold"/>
+								<Input id="pnr" type="Text" width="30%" value="{Pernr}" editable="false"></Input>
+								<Input id="EMPNA" value="{Ename}" width="80%" editable="false"/>
+								<Label text="{i18n>Date}" textAlign="Left" design="Bold"/>
+								<DatePicker id="Date" width="35%" value="{Estdt}" editable="false" valueFormat="yyyyMMdd" displayFormat="dd/MM/yyyy" required="false"/>
+								<Label text="{i18n>Sct}" id="lblsct" textAlign="Left" design="Bold" visible="true" required="false"/>
+								<Input id="sct" type="Text" width="30%" showSuggestion="false" enabled="true" editable="false" value="{Vcate}"/>
+								<!--valueHelpOnly="true" showValueHelp="true"-->
+								<!--valueHelpRequest="onValueHelpRequest3" required="false" visible="true"></Input>-->
+								<Input id="sctt" type="Text" enabled="true" visible="true" value="{Vcatt}" editable="false"></Input>
+								<Label text="{i18n>Sid}" id="lblsid" textAlign="Left" design="Bold" visible="true"/>
+								<Input id="sid" type="Text" width="35%" showSuggestion="false" enabled="true" editable="false" value="{Vioid}"/>
+								<!--valueHelpOnly="true" showValueHelp="true"-->
+								<!--valueHelpRequest="onValueHelpRequest4" required="false" visible="true"></Input>-->
+								<Input id="sidt" type="Text" enabled="true" value="{Vioit}" visible="true" editable="false"></Input>
+								<Label text="{i18n>note}" design="Bold"/>
+								<TextArea id="Note" value="{Note}" editable="false"></TextArea>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://group" tooltip="{i18n>detailIconTabBarApprovers}">
+						<Title level="H1" text="{i18n>approvers}"/>
+						<FlexBox alignContent="Center" alignItems="Inherit" justifyContent="Center">
+							<List id="approversList" items="{path:'/ApproversSet'}" inset="false" showSeparators="None" noDataText="{i18n>approversListNoDataText}"
+								headerDesign="Plain">
+								<FeedListItem id="feed" icon="{path:'App1empno', formatter:'.userImageFormatter'}" sender="{App1empna}" info="{path:'App1status'}"
+									senderPress="_handleSenderPress" timestamp="Line Manager - {App1date}" text="{App1comments}"/>
+							</List>
+						</FlexBox>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</mvc:View>

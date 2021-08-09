@@ -1,0 +1,50 @@
+<mvc:View controllerName="sncReq.controller.Master" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<Page id="page" title="{masterView>/title}" navButtonPress="onNavBack" showNavButton="true">
+		<subHeader>
+			<Bar id="headerBar">
+				<contentMiddle>
+					<SearchField id="searchField" placeholder="{i18n>searchLoanReqPlaceholder}" showRefreshButton="{= !${device>/support/touch} }"
+						tooltip="{i18n>masterSearchTooltip}" width="100%" search="onSearch"></SearchField>
+				</contentMiddle>
+			</Bar>
+		</subHeader>
+		<content>
+			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
+			<SegmentedButton id="segmentedButton" width="100%" visible="false">
+				<Button text="MySelf" type="Transparent" press="onMyselfPress"></Button>
+				<Button text="Behalf" type="Transparent" press="onBehalfPress"></Button>
+			</SegmentedButton>
+			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
+			<!--Trano - replaced with Pernr:Chinna-->
+			<!--<List id="list" items="{ path: '/SancreqSet', sorter: { path: 'Pernr', descending: false }, groupHeaderFactory: '.createGroupHeader' }"-->
+			<List id="list" items="{ path: '/SancreqSet', sorter: { path: 'TraNo', descending: false }, groupHeaderFactory: '.createGroupHeader' }"
+				busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}"
+				mode="{= ${device>/system/phone} ? 'None' : 'SingleSelectMaster'}" growing="true" growingThreshold="10" growingScrollToLoad="true"
+				updateFinished="onUpdateFinished" selectionChange="onSelectionChange">
+				<infoToolbar>
+					<Toolbar active="true" id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings">
+						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}"/>
+					</Toolbar>
+				</infoToolbar>
+				<items>
+					<ObjectListItem type="{= ${device>/system/phone} ? 'Active' : 'Inactive'}" press="onSelectionChange" title="{TraNo}">
+						<!--number="{Estdt}">-->
+						<attributes>
+							<ObjectAttribute text="{Ename}"/>
+						</attributes>
+						<firstStatus>
+							<ObjectStatus text="{Status}" state="{path:'Status', formatter: '.formatter.statusColorFormatter'}"/>
+							<!--<ObjectStatus text="{path:'Status', formatter: '.formatter.statusFormatter'}"-->
+						</firstStatus>
+					</ObjectListItem>
+				</items>
+			</List>
+		</content>
+		<footer>
+			<OverflowToolbar id="footerbar">
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://add" press="handleOnCreateClick"></Button>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
